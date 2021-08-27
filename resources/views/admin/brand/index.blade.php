@@ -36,9 +36,10 @@
                             @php($i=1)
                             @foreach($brands as $brand)
                                 <tr>
-                                    <td> {{ $brands->firstItem()+$loop->index }} </td>
+{{--                                    <td> {{ $brands->firstItem()+$loop->index }} </td>--}}
+                                    <td> {{ $brand->id }} </td>
                                     <td> {{ $brand->brand_name }} </td>
-                                    <td> <img src="" alt=""> </td>
+                                    <td> <img src="{{ asset($brand->brand_image) }}" style="height: 40px; width: 70px; object-fit: cover;" alt=""> </td>
                                     <td>
                                         @if($brand->created_at == NULL)
                                             <span class="text-danger"> No Date Set</span>
@@ -48,7 +49,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ url('brand/delete/'.$brand->id) }}" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('brand/delete/'.$brand->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
