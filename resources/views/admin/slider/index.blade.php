@@ -13,41 +13,42 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="card-header"> All Brand </div>
+                        <div class="card-header"> All Sliders </div>
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th scope="col">SL No</th>
-                                    <th scope="col">Brand Name</th>
-                                    <th scope="col">User</th>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Action</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">SL No</th>
+                                <th scope="col">Slider Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Action</th>
+                            </tr>
                             </thead>
 
                             <tbody>
                             @php($i=1)
-                            @foreach($brands as $brand)
+                            @foreach($sliders as $slider)
                                 <tr>
-                                    <td> {{ $brands->firstItem()+$loop->index }} </td>
-                                    <td> {{ $brand->brand_name }} </td>
-                                    <td> <img src="{{ asset($brand->brand_image) }}" style="height: 40px; width: 70px; object-fit: cover;" alt=""> </td>
+                                    <td> {{ $sliders->firstItem()+$loop->index }} </td>
+                                    <td> {{ $slider->title }} </td>
+                                    <td> {{ $slider->description }} </td>
+                                    <td> <img src="{{ asset($slider->image) }}" style="height: 40px; width: 70px; object-fit: cover;" alt=""> </td>
                                     <td>
-                                        @if($brand->created_at == NULL)
+                                        @if($slider->created_at == NULL)
                                             <span class="text-danger"> No Date Set</span>
                                         @else
-                                            {{ Carbon\Carbon::parse($brand->created_at)->diffForHumans() }}
+                                            {{ Carbon\Carbon::parse($slider->created_at)->diffForHumans() }}
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ url('brand/delete/'.$brand->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $brands->links() }}
+{{--                        {{ $brands->links() }}--}}
                     </div>
                 </div>
                 <div class="col-md-4">
