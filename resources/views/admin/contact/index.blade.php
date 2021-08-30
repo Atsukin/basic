@@ -4,8 +4,8 @@
     <div class="py-12">
         <div class="container">
             <div class="row">
-                <h2>Home Slider</h2>
-                <a href="{{ route('add.slider') }}"><button class="btn btn-info">Add Slider</button></a>
+                <h4>Contact Page</h4>
+                <a href="{{ route('admin.add.contact') }}"><button class="btn btn-info">Add Contact</button></a>
                 <div class="col-md-12">
                     <div class="card">
                         @if(session('success'))
@@ -15,29 +15,29 @@
                                 </button>
                             </div>
                         @endif
-                        <div class="card-header"> All Sliders </div>
+                        <div class="card-header"> All Contact Data </div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th width="5%" scope="col">SL </th>
-                                <th width="15%" scope="col">Slider Title</th>
-                                <th width="15%" scope="col">Description</th>
-                                <th width="15%" scope="col">Image</th>
+                                <th width="15%" scope="col">Contact Address</th>
+                                <th width="15%" scope="col">Contact email</th>
+                                <th width="25%" scope="col">Contact Phone</th>
                                 <th width="15%" scope="col">Action</th>
                             </tr>
                             </thead>
 
                             <tbody>
                             @php($i=1)
-                            @foreach($sliders as $slider)
+                            @foreach($contacts as $con)
                                 <tr>
-                                    <td> {{ $i++ }} </td>
-                                    <td> {{ $slider->title }} </td>
-                                    <td> {{ $slider->description }} </td>
-                                    <td> <img src="{{ asset($slider->image) }}" style="height: 40px; width: 70px; object-fit: cover;" alt=""> </td>
+                                    <td scope="row"> {{ $i++ }} </td>
+                                    <td> {{ $con->address }} </td>
+                                    <td> {{ $con->email }} </td>
+                                    <td> {{ $con->phone }} </td>
                                     <td>
-                                        <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('contact/edit/'.$about->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ url('contact/delete/'.$about->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

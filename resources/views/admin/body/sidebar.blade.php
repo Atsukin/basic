@@ -37,25 +37,19 @@
                     <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
                         <div class="sub-menu">
                             <li class="active">
-                                <a class="sidenav-item-link" href="index.html">
-                                    <span class="nav-text">Ecommerce</span>
-                                </a>
-                            </li>
-
-                            <li class="active">
                                 <a class="sidenav-item-link" href="{{ route('home.slider') }}">
                                     <span class="nav-text">Slider</span>
                                 </a>
                             </li>
 
                             <li class="">
-                                <a class="sidenav-item-link" href="analytics.html">
+                                <a class="sidenav-item-link" href="{{ route('home.about') }}">
                                     <span class="nav-text">Home About</span>
                                 </a>
                             </li>
 
                             <li class="">
-                                <a class="sidenav-item-link" href="analytics.html">
+                                <a class="sidenav-item-link" href="{{ route('multi.image') }}">
                                     <span class="nav-text">Home Portfolio</span>
                                 </a>
                             </li>
@@ -108,149 +102,27 @@
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#forms"
                        aria-expanded="false" aria-controls="forms">
                         <i class="mdi mdi-email-mark-as-unread"></i>
-                        <span class="nav-text">Forms</span> <b class="caret"></b>
+                        <span class="nav-text">ContactPage</span> <b class="caret"></b>
                     </a>
 
                     <ul class="collapse " id="forms" data-parent="#sidebar-menu">
                         <div class="sub-menu">
+
                             <li class="">
-                                <a class="sidenav-item-link" href="basic-input.html">
-                                    <span class="nav-text">Basic Input</span>
+                                <a class="sidenav-item-link" href="{{ route('admin.contact') }}">
+                                    <span class="nav-text">Contact Profile</span>
                                 </a>
                             </li>
 
                             <li class="">
-                                <a class="sidenav-item-link" href="input-group.html">
-                                    <span class="nav-text">Input Group</span>
+                                <a class="sidenav-item-link" href="{{ route('admin.contact') }}">
+                                    <span class="nav-text">Contact Message</span>
                                 </a>
                             </li>
 
-                            <li class="">
-                                <a class="sidenav-item-link" href="checkbox-radio.html">
-                                    <span class="nav-text">Checkbox & Radio</span>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a class="sidenav-item-link" href="form-validation.html">
-                                    <span class="nav-text">Form Validation</span>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a class="sidenav-item-link" href="form-advance.html">
-                                    <span class="nav-text">Form Advance</span>
-                                </a>
-                            </li>
                         </div>
                     </ul>
                 </li>
-
-                <li class="has-sub ">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#maps"
-                       aria-expanded="false" aria-controls="maps">
-                        <i class="mdi mdi-google-maps"></i>
-                        <span class="nav-text">Maps</span> <b class="caret"></b>
-                    </a>
-
-                    <ul class="collapse " id="maps" data-parent="#sidebar-menu">
-                        <div class="sub-menu">
-                            <li class="">
-                                <a class="sidenav-item-link" href="google-map.html">
-                                    <span class="nav-text">Google Map</span>
-                                </a>
-                            </li>
-
-                            <li class="">
-                                <a class="sidenav-item-link" href="vector-map.html">
-                                    <span class="nav-text">Vector Map</span>
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                </li>
-
-                <li class="has-sub ">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
-                       aria-expanded="false" aria-controls="charts">
-                        <i class="mdi mdi-chart-pie"></i>
-                        <span class="nav-text">Charts</span> <b class="caret"></b>
-                    </a>
-
-                    <ul class="collapse " id="charts" data-parent="#sidebar-menu">
-                        <div class="sub-menu">
-                            <li class="">
-                                <a class="sidenav-item-link" href="chartjs.html">
-                                    <span class="nav-text">ChartJS</span>
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                </li>
-
-                <!-- <li class="section-title">
-                  Pages
-                </li> -->
-
-                <li class="has-sub ">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
-                       aria-expanded="false" aria-controls="pages">
-                        <i class="mdi mdi-image-filter-none"></i>
-                        <span class="nav-text">Pages</span> <b class="caret"></b>
-                    </a>
-
-                    <ul class="collapse " id="pages" data-parent="#sidebar-menu">
-                        <div class="sub-menu ">
-                            <li class="">
-                                <a class="sidenav-item-link" href="user-profile.html">
-                                    <span class="nav-text">User Profile</span>
-                                </a>
-                            </li>
-
-                            <li class="has-sub ">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#authentication"
-                                   aria-expanded="false" aria-controls="authentication">
-                                    <span class="nav-text">Authentication</span> <b class="caret"></b>
-                                </a>
-
-                                <ul class="collapse " id="authentication">
-                                    <div class="sub-menu">
-                                        <li class="">
-                                            <a href="sign-in.html">Sign In</a>
-                                        </li>
-
-                                        <li class="">
-                                            <a href="sign-up.html">Sign Up</a>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub ">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#others"
-                                   aria-expanded="false" aria-controls="others">
-                                    <span class="nav-text">Others</span> <b class="caret"></b>
-                                </a>
-
-                                <ul class="collapse " id="others">
-                                    <div class="sub-menu">
-                                        <li class="">
-                                            <a href="invoice.html">Invoice</a>
-                                        </li>
-
-                                        <li class="">
-                                            <a href="404.html">404 Page</a>
-                                        </li>
-                                    </div>
-                                </ul>
-                            </li>
-                        </div>
-                    </ul>
-                </li>
-
-                <!-- <li class="section-title">
-                  Documentation
-                </li> -->
             </ul>
         </div>
 

@@ -668,9 +668,9 @@
 
 
 
-<script src="assets/js/sleek.js"></script>
-<link href="assets/options/optionswitch.css" rel="stylesheet">
-<script src="assets/options/optionswitcher.js"></script>
+<script src="{{ asset('backend/assets/js/sleek.js') }}"></script>
+<link href="{{ asset('backend/assets/options/optionswitch.css') }}" rel="stylesheet">
+<script src="{{ asset('backend/assets/options/optionswitcher.js') }}"></script>
 </body>
 </html>
 

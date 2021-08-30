@@ -5,7 +5,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
-use App\Models\User;
+use App\Http\Controllers\AboutController;
+use App\Models\Multipic;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -25,7 +26,9 @@ Route::get('/email/verify', function() {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $images = Multipic::all();
+    $abouts = DB::table('home_abouts')->first();
+    return view('home', compact('brands', 'abouts', 'images'));
 });
 
 Route::get('/home', function () {
@@ -35,8 +38,6 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('about');
 })->middleware('check');
-
-Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
 // CategoryController
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->name('all.category');
@@ -61,6 +62,28 @@ Route::post('/multi/add', [BrandController::class, 'StoreImage'])->name('store.i
 
 //Admin ALL Route
 Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
+
+//Home About ALl Route
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
+Route::post('/update/homeabout/{id}', [AboutController::class, 'UpdateAbout']);
+Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+
+// Portfolio Page Route
+Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+// Admin Contact Page Route
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('admin.add.contact');
+Route::post('/admin/store/contact', [ContactController::class, 'AdminStoreContact'])->name('store.contact');
+
+// Home Contact Page Route
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::get('/contact/form', [ContactController::class, 'Contact'])->name('contact');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
