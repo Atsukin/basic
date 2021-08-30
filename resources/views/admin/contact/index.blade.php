@@ -36,8 +36,8 @@
                                     <td> {{ $con->email }} </td>
                                     <td> {{ $con->phone }} </td>
                                     <td>
-                                        <a href="{{ url('contact/edit/'.$about->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ url('contact/delete/'.$about->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('contact/edit/'.$con->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ url('contact/delete/'.$con->id) }}" onclick="return confirm('Are you sure to delete?');" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

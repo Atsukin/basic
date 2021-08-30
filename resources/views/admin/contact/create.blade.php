@@ -9,22 +9,22 @@
             </div>
 
             <div class="card-body">
-                <form action="{{ route('store.about') }}" method="POST">
+                <form action="{{ route('store.contact') }}" method="POST">
 
                     @csrf
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Contact Email</label>
-                        <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Slider Title">
+                        <input type="text" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea2">Contact Phone</label>
-                        <textarea name="short_dis" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <input type="text" name="phone" class="form-control" id="exampleFormControlTextarea1">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Contact Address</label>
-                        <textarea name="long_dis" class="form-control" id="exampleFormControlFile1"></textarea>
+                        <textarea name="address" class="form-control" id="exampleFormControlFile1"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
