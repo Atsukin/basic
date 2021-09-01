@@ -24,12 +24,6 @@
 
     <link href="{{ asset('backend/assets/plugins/toastr/toastr.min.css')}}" rel='stylesheet'>
 
-
-
-
-
-
-
     <!-- SLEEK CSS -->
     <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css')}}" />
 
@@ -136,12 +130,12 @@
                                                 <li>
                                                     <a href="javscript:void(0)" class="media media-message media-notification">
                                                         <div class="position-relative mr-3">
-                                                            <img class="rounded-circle" src="assets/img/user/u2.jpg" alt="Image">
+                                                            <img class="rounded-circle" src=" alt="Image">
                                                             <span class="status away"></span>
                                                         </div>
                                                         <div class="media-body d-flex justify-content-between">
                                                             <div class="message-contents">
-                                                                <h4 class="title">Aaren</h4>
+                                                                <h4 class="title">{{ Auth::user()->name }}</h4>
                                                                 <p class="last-msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam itaque doloremque odio, eligendi delectus vitae.</p>
 
                                                                 <span class="font-size-12 font-weight-medium text-secondary">
@@ -549,20 +543,19 @@
                         <!-- User Account -->
                         <li class="dropdown user-menu">
                             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
-                                <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                                <img src="{{ Auth::user()->profile_photo_path }}" class="user-image" alt="User Image" />
+                                <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <!-- User image -->
                                 <li class="dropdown-header">
-                                    <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                                    <img src="{{ Auth::user()->profile_photo_path }}" class="img-circle" alt="User Image" />
                                     <div class="d-inline-block">
-                                        Abdus Salam <small class="pt-1">iamabdus@gmail.com</small>
+                                        {{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
                                     </div>
                                 </li>
-
                                 <li>
-                                    <a href="user-profile.html">
+                                    <a href="{{ route('user.profile') }}">
                                         <i class="mdi mdi-account"></i> My Profile
                                     </a>
                                 </li>
@@ -649,23 +642,26 @@
 <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
 
 
-
-
-
-
-
-
-<script src='assets/plugins/toastr/toastr.min.js'></script>
-
-
-
-
-
-
-
-
-
-
+<script src="{{ asset('backend/assets/plugins/toastr/toastr.min.js') }}"></script>
+<script>
+    @if(Session::has('message'))
+        var type = " {{ Session::get('alert-type', 'info') }} "
+        switch(type){
+            case 'info':
+                toastr.info( " {{ Session::get('message') }} " )
+                break;
+            case 'success':
+                toastr.success( " {{ Session::get('message') }} " )
+                break;
+            case 'warning':
+                toastr.warning( " {{ Session::get('message') }} " )
+                break;
+            case 'error':
+                toastr.error( " {{ Session::get('message') }} " )
+                break;
+        }
+    @endif
+</script>
 
 
 <script src="{{ asset('backend/assets/js/sleek.js') }}"></script>
